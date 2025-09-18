@@ -5,13 +5,17 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: url("/img/cork.png");
+}
+
 /* setto l'header e il container */
 header {
     background-image: url("/img/wall.png");
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20vh;
+    height: 10vh;
     font-size: 30px;
     font-family: "Edu TAS Beginner", cursive;
 }
@@ -20,7 +24,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("/img/cork.png");
 }
 
 /* e setto le card che poi compariranno */
@@ -43,6 +46,15 @@ header {
     font-family: "Sometype Mono", monospace;
 }
 
+/* creo l'animazione e l'effetto del cursore. */
+.card:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    transform: rotate(10deg) scale(1);
+    box-shadow: 5px 5px 5px -2px black;
+    z-index: 900;
+}
+
 .card img {
     width: 100%;
     height: 100%;
@@ -61,4 +73,42 @@ header {
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+/* faccio scomparire il pin quando passo il mouse sopra */
+.card:hover .pin {
+    display: none;
+}
+
+/* creo la card che continene l'immagine zoomata e gli metto lo sfondo scuro, inoltre gli metto le proprietà che una volta "trasformato dal js il display" funzionino in flex */
+.centralCard {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* setto l'immagine e la sua grandezza. */
+.centralCard img {
+    display: block;
+    max-width: 600px;
+    max-height: 600px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: static;
+
+}
+
+/* imposto il bottone */
+
+#closeButton {
+    font-size: larger;
+    padding: 10px;
+    margin-bottom: 10px;
 }
